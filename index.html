@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cleonia — Satu Kelas, Seribu Cerita</title>
+  <meta name="description" content="Website resmi kelas Cleonia. Kenalan sama kami dan lihat galeri keseruan kelas." />
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+            serif: ['"Instrument Serif"', 'Georgia', 'serif'],
+          },
+          colors: {
+            matcha: {
+              50:  '#f7faf3',
+              100: '#edf4e4',
+              200: '#dbe9ca',
+              300: '#bed6a2',
+              400: '#9cbd76',
+              500: '#7da455',
+              600: '#618340',
+              700: '#4c6634',
+              800: '#3f522d',
+              900: '#364628',
+            },
+          },
+          boxShadow: {
+            soft: '0 10px 30px -12px rgba(125, 164, 85, 0.25)',
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    ::selection { background: #dbe9ca; color: #364628; }
+    html { -webkit-tap-highlight-color: transparent; }
+
+    /* Watermark background */
+    body {
+      background-color: #ffffff;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='480' height='480'%3E%3Ctext x='240' y='240' font-family='Georgia, serif' font-style='italic' font-size='58' font-weight='700' fill='%237da455' fill-opacity='0.07' text-anchor='middle' dominant-baseline='middle' transform='rotate(-25 240 240)'%3ECleonia%3C/text%3E%3C/svg%3E");
+      background-attachment: fixed;
+      background-size: 480px 480px;
+      background-repeat: repeat;
+    }
+  </style>
+</head>
+
+<body class="text-neutral-800 font-sans antialiased">
+
+  <!-- ============ NAVBAR ============ -->
+  <header class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-matcha-100">
+    <nav class="mx-auto max-w-6xl px-6 h-16 flex items-center justify-between">
+      <a href="#top" class="flex items-center gap-2.5 group">
+        <span class="grid h-9 w-9 place-items-center rounded-xl bg-matcha-500 text-white font-extrabold shadow-soft transition group-hover:scale-105">
+          C
+        </span>
+        <span class="text-lg font-extrabold tracking-tight text-neutral-900">Cleonia</span>
+      </a>
+
+      <div class="hidden md:flex items-center gap-7 text-sm font-medium text-neutral-500">
+        <a href="#tentang"  class="hover:text-matcha-600 transition-colors">Tentang</a>
+        <a href="#anggota"  class="hover:text-matcha-600 transition-colors">Anggota</a>
+        <a href="#galeri"   class="hover:text-matcha-600 transition-colors">Galeri</a>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <a href="https://instagram.com/cleonia.class__" target="_blank" rel="noopener"
+           class="hidden md:inline-flex items-center gap-2 rounded-full bg-matcha-500 px-5 py-2.5 text-sm font-semibold text-white shadow-soft transition hover:bg-matcha-600 hover:-translate-y-0.5">
+          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+          </svg>
+          Follow
+        </a>
+
+        <button id="menuBtn" aria-label="Buka menu"
+                class="md:hidden grid h-10 w-10 place-items-center rounded-xl border border-matcha-200 text-matcha-700 transition hover:bg-matcha-50">
+          <svg id="iconOpen" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <path d="M4 7h16M4 12h16M4 17h16"/>
+          </svg>
+          <svg id="iconClose" class="h-5 w-5 hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <path d="M6 6l12 12M18 6L6 18"/>
+          </svg>
+        </button>
+      </div>
+    </nav>
+
+    <div id="mobileMenu" class="hidden md:hidden border-t border-matcha-100 bg-white px-6 py-3">
+      <div class="flex flex-col text-sm font-medium text-neutral-600">
+        <a href="#tentang" class="rounded-xl px-3 py-3 hover:bg-matcha-50 hover:text-matcha-700 transition">Tentang</a>
+        <a href="#anggota" class="rounded-xl px-3 py-3 hover:bg-matcha-50 hover:text-matcha-700 transition">Anggota</a>
+        <a href="#galeri"  class="rounded-xl px-3 py-3 hover:bg-matcha-50 hover:text-matcha-700 transition">Galeri</a>
+        <a href="https://instagram.com/cleonia.class__" target="_blank" rel="noopener"
+           class="mt-2 rounded-xl bg-matcha-500 px-3 py-3 text-center font-semibold text-white">Follow Instagram</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- ============ HERO ============ -->
+    <section class="relative overflow-hidden">
+      <div class="pointer-events-none absolute -top-32 -right-24 h-96 w-96 rounded-full bg-matcha-100 blur-3xl opacity-70"></div>
+      <div class="pointer-events-none absolute top-40 -left-32 h-80 w-80 rounded-full bg-matcha-50 blur-3xl"></div>
+
+      <div class="relative mx-auto max-w-6xl px-6 pt-12 pb-16 md:pt-16 md:pb-20 grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
+
+        <!-- Teks -->
+        <div>
+          <span class="inline-flex items-center gap-2 rounded-full border border-matcha-200 bg-matcha-50 px-3.5 py-1.5 text-xs font-semibold text-matcha-700">
+            <span class="h-1.5 w-1.5 animate-pulse rounded-full bg-matcha-500"></span>
+            Kelas XII RPL 2
+          </span>
+
+          <h1 class="mt-5 font-serif text-6xl leading-[0.95] tracking-tight text-neutral-900 sm:text-7xl">
+            We are<br />
+            <span class="italic text-matcha-500">Cleonia</span>.
+          </h1>
+
+          <p class="mt-5 max-w-lg text-base leading-relaxed text-neutral-500 sm:text-lg">
+            Satu kelas, seribu cerita. Tempat di mana tawa, drama kecil, dan mimpi besar
+            tumbuh bareng. Kenalan sama kami yuk — mulai dari sini.
+          </p>
+
+          <div class="mt-7 flex flex-wrap items-center gap-3">
+            <a href="#anggota"
+               class="inline-flex items-center gap-2 rounded-full bg-matcha-500 px-6 py-3 text-sm font-semibold text-white shadow-soft transition hover:bg-matcha-600 hover:-translate-y-0.5">
+              Kenalan Sama Kami
+              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12h14M13 6l6 6-6 6"/>
+              </svg>
+            </a>
+            <a href="#galeri"
+               class="inline-flex items-center gap-2 rounded-full border border-matcha-200 bg-white px-6 py-3 text-sm font-semibold text-matcha-700 transition hover:bg-matcha-50 hover:-translate-y-0.5">
+              Lihat Galeri
+            </a>
+          </div>
+
+          <dl class="mt-10 grid max-w-md grid-cols-3 gap-6 border-t border-matcha-100 pt-6">
+            <div>
+              <dt class="text-2xl font-extrabold text-neutral-900">34</dt>
+              <dd class="mt-0.5 text-xs font-medium text-neutral-400">Siswa</dd>
+            </div>
+            <div>
+              <dt class="text-2xl font-extrabold text-neutral-900">1</dt>
+              <dd class="mt-0.5 text-xs font-medium text-neutral-400">Wali Kelas</dd>
+            </div>
+            <div>
+              <dt class="text-2xl font-extrabold text-neutral-900">∞</dt>
+              <dd class="mt-0.5 text-xs font-medium text-neutral-400">Kenangan</dd>
+            </div>
+          </dl>
+        </div>
+
+        <!-- Visual -->
+        <div class="relative">
+          <div class="absolute inset-0 -rotate-3 rounded-[2rem] bg-matcha-100"></div>
+          <div class="relative overflow-hidden rounded-[2rem] border border-matcha-100 bg-white shadow-soft">
+            <img src="j1.jpg" alt="Foto kelas Cleonia"
+                 class="aspect-video w-full object-cover" />
+          </div>
+
+          <div class="absolute -bottom-4 -left-3 flex items-center gap-3 rounded-2xl border border-matcha-100 bg-white px-4 py-3 shadow-soft sm:-left-6">
+            <span class="grid h-10 w-10 place-items-center rounded-xl bg-matcha-50 text-lg">🍵</span>
+            <div>
+              <p class="text-sm font-bold text-neutral-900">Kelas Paling Kompak</p>
+              <p class="text-xs text-neutral-400">versi kami sendiri 😌</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============ TENTANG ============ -->
+    <section id="tentang" class="border-t border-matcha-100 bg-matcha-50/40">
+      <div class="mx-auto max-w-6xl px-6 py-14 md:py-20">
+        <div class="grid gap-10 md:grid-cols-2 md:gap-14">
+
+          <div>
+            <span class="text-xs font-bold uppercase tracking-[0.2em] text-matcha-600">Tentang Kami</span>
+            <h2 class="mt-3 font-serif text-4xl leading-tight tracking-tight text-neutral-900 sm:text-5xl">
+              Bukan sekadar kelas,<br />ini <span class="italic text-matcha-500">rumah kedua</span>.
+            </h2>
+            <p class="mt-5 leading-relaxed text-neutral-500">
+              Cleonia lahir dari 34 kepala dengan 34 cara berpikir yang berbeda. Kami belajar bareng,
+              ribut bareng, ketawa bareng, dan tumbuh bareng. Setiap hari di kelas ini selalu punya
+              cerita yang sayang banget kalau nggak diabadikan.
+            </p>
+            <p class="mt-3.5 leading-relaxed text-neutral-500">
+              Halaman ini kami bikin supaya kenangan itu nggak hilang — sekaligus pintu buat
+              siapa pun yang mau kenal dengan kami lebih dekat.
+            </p>
+          </div>
+
+          <div class="grid gap-3.5 sm:grid-cols-2 md:content-start">
+            <div class="rounded-2xl border border-matcha-100 bg-white p-5 transition hover:-translate-y-1 hover:shadow-soft">
+              <span class="grid h-10 w-10 place-items-center rounded-xl bg-matcha-50 text-lg">🤝</span>
+              <h3 class="mt-3 font-bold text-neutral-900">Solid</h3>
+              <p class="mt-1 text-sm leading-relaxed text-neutral-500">Satu kesusahan, semua bantuin. Nggak ada yang jalan sendiri.</p>
+            </div>
+
+            <div class="rounded-2xl border border-matcha-100 bg-white p-5 transition hover:-translate-y-1 hover:shadow-soft">
+              <span class="grid h-10 w-10 place-items-center rounded-xl bg-matcha-50 text-lg">🌱</span>
+              <h3 class="mt-3 font-bold text-neutral-900">Bertumbuh</h3>
+              <p class="mt-1 text-sm leading-relaxed text-neutral-500">Salah itu biasa, yang penting belajar dan naik level terus.</p>
+            </div>
+
+            <div class="rounded-2xl border border-matcha-100 bg-white p-5 transition hover:-translate-y-1 hover:shadow-soft">
+              <span class="grid h-10 w-10 place-items-center rounded-xl bg-matcha-50 text-lg">😂</span>
+              <h3 class="mt-3 font-bold text-neutral-900">Seru</h3>
+              <p class="mt-1 text-sm leading-relaxed text-neutral-500">Kelas paling rame, paling banyak joke receh, paling susah serius.</p>
+            </div>
+
+            <div class="rounded-2xl border border-matcha-100 bg-white p-5 transition hover:-translate-y-1 hover:shadow-soft">
+              <span class="grid h-10 w-10 place-items-center rounded-xl bg-matcha-50 text-lg">✨</span>
+              <h3 class="mt-3 font-bold text-neutral-900">Berkesan</h3>
+              <p class="mt-1 text-sm leading-relaxed text-neutral-500">Tiap momen kami dokumentasiin biar jadi cerita masa depan.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ANGGOTA ============ -->
+    <section id="anggota">
+      <div class="mx-auto max-w-6xl px-6 py-14 md:py-20">
+
+        <div class="mx-auto max-w-2xl text-center">
+          <span class="text-xs font-bold uppercase tracking-[0.2em] text-matcha-600">Struktur Kelas</span>
+          <h2 class="mt-3 font-serif text-4xl leading-tight tracking-tight text-neutral-900 sm:text-5xl">
+            Orang-orang di balik <span class="italic text-matcha-500">Cleonia</span>
+          </h2>
+          <p class="mt-3 text-neutral-500">
+            Mereka yang bikin kelas ini hidup setiap hari.
+          </p>
+        </div>
+
+        <!-- WALI KELAS — featured card -->
+        <div class="mt-10">
+          <article class="relative overflow-hidden rounded-2xl border border-matcha-200 bg-matcha-50/70 p-6 sm:p-8">
+            <div class="pointer-events-none absolute -top-12 -right-12 h-40 w-40 rounded-full bg-matcha-100 blur-2xl"></div>
+            <div class="relative flex flex-col items-center gap-5 text-center sm:flex-row sm:items-center sm:gap-7 sm:text-left">
+              <div class="grid h-24 w-24 shrink-0 place-items-center rounded-2xl bg-matcha-500 text-3xl font-extrabold text-white shadow-soft">
+                WK
+              </div>
+              <div>
+                <span class="text-xs font-bold uppercase tracking-[0.2em] text-matcha-600">Wali Kelas</span>
+                <h3 class="mt-1 font-serif text-3xl leading-tight text-neutral-900">
+                  Wenci Lestarina, S. Pd.
+                </h3>
+                <p class="mt-1.5 max-w-xl text-sm leading-relaxed text-neutral-500">
+                  Sosok yang sabar nemenin kami tumbuh. Banyak nasihat dan wajengan yang beliau berikan untuk kami.
+                </p>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- Grid anggota -->
+        <div class="mt-5 grid gap-3.5 sm:grid-cols-2 lg:grid-cols-4">
+
+          <!-- card 1 -->
+          <article class="group rounded-2xl border border-matcha-100 bg-white p-5 text-center transition hover:-translate-y-1.5 hover:border-matcha-200 hover:shadow-soft">
+            <div class="mx-auto grid h-16 w-16 place-items-center rounded-full bg-matcha-500 text-xl font-extrabold text-white transition group-hover:scale-105">KK</div>
+            <h3 class="mt-3 font-bold text-neutral-900">Alisya Fitri Wulandari</h3>
+            <p class="mt-0.5 text-sm font-medium text-matcha-600">Ketua Kelas</p>
+          </article>
+
+          <article class="group rounded-2xl border border-matcha-100 bg-white p-5 text-center transition hover:-translate-y-1.5 hover:border-matcha-200 hover:shadow-soft">
+            <div class="mx-auto grid h-16 w-16 place-items-center rounded-full bg-matcha-400 text-xl font-extrabold text-white transition group-hover:scale-105">WK</div>
+            <h3 class="mt-3 font-bold text-neutral-900">Adwin Pasyadila</h3>
+            <p class="mt-0.5 text-sm font-medium text-matcha-600">Wakil Ketua</p>
+          </article>
+
+          <article class="group rounded-2xl border border-matcha-100 bg-white p-5 text-center transition hover:-translate-y-1.5 hover:border-matcha-200 hover:shadow-soft">
+            <div class="mx-auto grid h-16 w-16 place-items-center rounded-full bg-matcha-500 text-xl font-extrabold text-white transition group-hover:scale-105">SK</div>
+            <h3 class="mt-3 font-bold text-neutral-900">Nanda Santiya</h3>
+            <p class="mt-0.5 text-sm font-medium text-matcha-600">Sekretaris</p>
+          </article>
+
+          <article class="group rounded-2xl border border-matcha-100 bg-white p-5 text-center transition hover:-translate-y-1.5 hover:border-matcha-200 hover:shadow-soft">
+            <div class="mx-auto grid h-16 w-16 place-items-center rounded-full bg-matcha-400 text-xl font-extrabold text-white transition group-hover:scale-105">SK</div>
+            <h3 class="mt-3 font-bold text-neutral-900">Liza Inova</h3>
+            <p class="mt-0.5 text-sm font-medium text-matcha-600">Sekretaris</p>
+          </article>
+
+          <article class="group rounded-2xl border border-matcha-100 bg-white p-5 text-center transition hover:-translate-y-1.5 hover:border-matcha-200 hover:shadow-soft">
+            <div class="mx-auto grid h-16 w-16 place-items-center rounded-full bg-matcha-400 text-xl font-extrabold text-white transition group-hover:scale-105">BR</div>
+            <h3 class="mt-3 font-bold text-neutral-900">Chelse Novitasari</h3>
+            <p class="mt-0.5 text-sm font-medium text-matcha-600">Bendahara</p>
+          </article>
+
+          <article class="group rounded-2xl border border-matcha-100 bg-white p-5 text-center transition hover:-translate-y-1.5 hover:border-matcha-200 hover:shadow-soft">
+            <div class="mx-auto grid h-16 w-16 place-items-center rounded-full bg-matcha-500 text-xl font-extrabold text-white transition group-hover:scale-105">AN</div>
+            <h3 class="mt-3 font-bold text-neutral-900">Akbar Fadly R.</h3>
+            <p class="mt-0.5 text-sm font-medium text-matcha-600">Anggota</p>
+          </article>
+
+          <article class="group rounded-2xl border border-matcha-100 bg-white p-5 text-center transition hover:-translate-y-1.5 hover:border-matcha-200 hover:shadow-soft">
+            <div class="mx-auto grid h-16 w-16 place-items-center rounded-full bg-matcha-400 text-xl font-extrabold text-white transition group-hover:scale-105">AN</div>
+            <h3 class="mt-3 font-bold text-neutral-900">Dela Azumika</h3>
+            <p class="mt-0.5 text-sm font-medium text-matcha-600">Anggota</p>
+          </article>
+
+          <article class="group rounded-2xl border border-matcha-100 bg-white p-5 text-center transition hover:-translate-y-1.5 hover:border-matcha-200 hover:shadow-soft">
+            <div class="mx-auto grid h-16 w-16 place-items-center rounded-full bg-matcha-500 text-xl font-extrabold text-white transition group-hover:scale-105">AN</div>
+            <h3 class="mt-3 font-bold text-neutral-900">Deli Anggraini</h3>
+            <p class="mt-0.5 text-sm font-medium text-matcha-600">Anggota</p>
+          </article>
+
+          <article class="group rounded-2xl border border-matcha-100 bg-white p-5 text-center transition hover:-translate-y-1.5 hover:border-matcha-200 hover:shadow-soft">
+            <div class="mx-auto grid h-16 w-16 place-items-center rounded-full bg-matcha-500 text-xl font-extrabold text-white transition group-hover:scale-105">AN</div>
+            <h3 class="mt-3 font-bold text-neutral-900">Delvita Naurabila</h3>
+            <p class="mt-0.5 text-sm font-medium text-matcha-600">Anggota</p>
+          </article>
+
+          <article class="group rounded-2xl border border-matcha-100 bg-white p-5 text-center transition hover:-translate-y-1.5 hover:border-matcha-200 hover:shadow-soft">
+            <div class="mx-auto grid h-16 w-16 place-items-center rounded-full bg-matcha-500 text-xl font-extrabold text-white transition group-hover:scale-105">AN</div>
+            <h3 class="mt-3 font-bold text-neutral-900">Calisca Khafizah K.</h3>
+            <p class="mt-0.5 text-sm font-medium text-matcha-600">Anggota</p>
+          </article>
+
+          <article class="group rounded-2xl border border-matcha-100 bg-white p-5 text-center transition hover:-translate-y-1.5 hover:border-matcha-200 hover:shadow-soft">
+            <div class="mx-auto grid h-16 w-16 place-items-center rounded-full bg-matcha-500 text-xl font-extrabold text-white transition group-hover:scale-105">AN</div>
+            <h3 class="mt-3 font-bold text-neutral-900">Derbi Anugraha P.</h3>
+            <p class="mt-0.5 text-sm font-medium text-matcha-600">Anggota</p>
+          </article>
+
+          <article class="group rounded-2xl border border-matcha-100 bg-white p-5 text-center transition hover:-translate-y-1.5 hover:border-matcha-200 hover:shadow-soft">
+            <div class="mx-auto grid h-16 w-16 place-items-center rounded-full bg-matcha-500 text-xl font-extrabold text-white transition group-hover:scale-105">AN</div>
+            <h3 class="mt-3 font-bold text-neutral-900">Dia Permata Sari</h3>
+            <p class="mt-0.5 text-sm font-medium text-matcha-600">Anggota</p>
+          </article>
+
+          <article class="group rounded-2xl border border-matcha-100 bg-white p-5 text-center transition hover:-translate-y-1.5 hover:border-matcha-200 hover:shadow-soft">
+            <div class="mx-auto grid h-16 w-16 place-items-center rounded-full bg-matcha-500 text-xl font-extrabold text-white transition group-hover:scale-105">AN</div>
+            <h3 class="mt-3 font-bold text-neutral-900">Diyana Jhinan Azzahra</h3>
+            <p class="mt-0.5 text-sm font-medium text-matcha-600">Anggota</p>
+          </article>
+
+          <article class="group rounded-2xl border border-matcha-100 bg-white p-5 text-center transition hover:-translate-y-1.5 hover:border-matcha-200 hover:shadow-soft">
+            <div class="mx-auto grid h-16 w-16 place-items-center rounded-full bg-matcha-500 text-xl font-extrabold text-white transition group-hover:scale-105">AN</div>
+            <h3 class="mt-3 font-bold text-neutral-900">Doni</h3>
+            <p class="mt-0.5 text-sm font-medium text-matcha-600">Anggota</p>
+          </article>
+
+          <article class="group rounded-2xl border border-matcha-100 bg-white p-5 text-center transition hover:-translate-y-1.5 hover:border-matcha-200 hover:shadow-soft">
+            <div class="mx-auto grid h-16 w-16 place-items-center rounded-full bg-matcha-500 text-xl font-extrabold text-white transition group-hover:scale-105">AN</div>
+            <h3 class="mt-3 font-bold text-neutral-900">Genta Pratama</h3>
+            <p class="mt-0.5 text-sm font-medium text-matcha-600">Anggota</p>
+          </article>
+
+          <article class="group rounded-2xl border border-matcha-100 bg-white p-5 text-center transition hover:-translate-y-1.5 hover:border-matcha-200 hover:shadow-soft">
+            <div class="mx-auto grid h-16 w-16 place-items-center rounded-full bg-matcha-500 text-xl font-extrabold text-white transition group-hover:scale-105">AN</div>
+            <h3 class="mt-3 font-bold text-neutral-900">Keyla Destanti</h3>
+            <p class="mt-0.5 text-sm font-medium text-matcha-600">Anggota</p>
+          </article>
+
+          <article class="group rounded-2xl border border-matcha-100 bg-white p-5 text-center transition hover:-translate-y-1.5 hover:border-matcha-200 hover:shadow-soft">
+            <div class="mx-auto grid h-16 w-16 place-items-center rounded-full bg-matcha-500 text-xl font-extrabold text-white transition group-hover:scale-105">AN</div>
+            <h3 class="mt-3 font-bold text-neutral-900">Leo Trijaya</h3>
+            <p class="mt-0.5 text-sm font-medium text-matcha-600">Anggota</p>
+          </article>
+
+          <article class="group rounded-2xl border border-matcha-100 bg-white p-5 text-center transition hover:-translate-y-1.5 hover:border-matcha-200 hover:shadow-soft">
+            <div class="mx-auto grid h-16 w-16 place-items-center rounded-full bg-matcha-500 text-xl font-extrabold text-white transition group-hover:scale-105">AN</div>
+            <h3 class="mt-3 font-bold text-neutral-900">Pirdaus</h3>
+            <p class="mt-0.5 text-sm font-medium text-matcha-600">Anggota</p>
+          </article>
+
+          <article class="group rounded-2xl border border-matcha-100 bg-white p-5 text-center transition hover:-translate-y-1.5 hover:border-matcha-200 hover:shadow-soft">
+            <div class="mx-auto grid h-16 w-16 place-items-center rounded-full bg-matcha-500 text-xl font-extrabold text-white transition group-hover:scale-105">AN</div>
+            <h3 class="mt-3 font-bold text-neutral-900">Rafli Tri Okta</h3>
+            <p class="mt-0.5 text-sm font-medium text-matcha-600">Anggota</p>
+          </article>
+
+          <article class="group rounded-2xl border border-matcha-100 bg-white p-5 text-center transition hover:-translate-y-1.5 hover:border-matcha-200 hover:shadow-soft">
+            <div class="mx-auto grid h-16 w-16 place-items-center rounded-full bg-matcha-500 text-xl font-extrabold text-white transition group-hover:scale-105">AN</div>
+            <h3 class="mt-3 font-bold text-neutral-900">Raka Pebriansyah</h3>
+            <p class="mt-0.5 text-sm font-medium text-matcha-600">Anggota</p>
+          </article>
+
+          <article class="group rounded-2xl border border-matcha-100 bg-white p-5 text-center transition hover:-translate-y-1.5 hover:border-matcha-200 hover:shadow-soft">
+            <div class="mx-auto grid h-16 w-16 place-items-center rounded-full bg-matcha-500 text-xl font-extrabold text-white transition group-hover:scale-105">AN</div>
+            <h3 class="mt-3 font-bold text-neutral-900">Rapa</h3>
+            <p class="mt-0.5 text-sm font-medium text-matcha-600">Anggota</p>
+          </article>
+
+          <article class="group rounded-2xl border border-matcha-100 bg-white p-5 text-center transition hover:-translate-y-1.5 hover:border-matcha-200 hover:shadow-soft">
+            <div class="mx-auto grid h-16 w-16 place-items-center rounded-full bg-matcha-500 text-xl font-extrabold text-white transition group-hover:scale-105">AN</div>
+            <h3 class="mt-3 font-bold text-neutral-900">Refa Dini Hari</h3>
+            <p class="mt-0.5 text-sm font-medium text-matcha-600">Anggota</p>
+          </article>
+
+          <article class="group rounded-2xl border border-matcha-100 bg-white p-5 text-center transition hover:-translate-y-1.5 hover:border-matcha-200 hover:shadow-soft">
+            <div class="mx-auto grid h-16 w-16 place-items-center rounded-full bg-matcha-500 text-xl font-extrabold text-white transition group-hover:scale-105">AN</div>
+            <h3 class="mt-3 font-bold text-neutral-900">Silfa Rahmadani P.</h3>
+            <p class="mt-0.5 text-sm font-medium text-matcha-600">Anggota</p>
+          </article>
+
+          <article class="group rounded-2xl border border-matcha-100 bg-white p-5 text-center transition hover:-translate-y-1.5 hover:border-matcha-200 hover:shadow-soft">
+            <div class="mx-auto grid h-16 w-16 place-items-center rounded-full bg-matcha-500 text-xl font-extrabold text-white transition group-hover:scale-105">AN</div>
+            <h3 class="mt-3 font-bold text-neutral-900">Santri Hadi</h3>
+            <p class="mt-0.5 text-sm font-medium text-matcha-600">Anggota</p>
+          </article>
+
+          <article class="group rounded-2xl border border-matcha-100 bg-white p-5 text-center transition hover:-translate-y-1.5 hover:border-matcha-200 hover:shadow-soft">
+            <div class="mx-auto grid h-16 w-16 place-items-center rounded-full bg-matcha-500 text-xl font-extrabold text-white transition group-hover:scale-105">AN</div>
+            <h3 class="mt-3 font-bold text-neutral-900">Siska Damaiyanti</h3>
+            <p class="mt-0.5 text-sm font-medium text-matcha-600">Anggota</p>
+          </article>
+
+          <article class="group rounded-2xl border border-matcha-100 bg-white p-5 text-center transition hover:-translate-y-1.5 hover:border-matcha-200 hover:shadow-soft">
+            <div class="mx-auto grid h-16 w-16 place-items-center rounded-full bg-matcha-500 text-xl font-extrabold text-white transition group-hover:scale-105">AN</div>
+            <h3 class="mt-3 font-bold text-neutral-900">Enda Etrisyah</h3>
+            <p class="mt-0.5 text-sm font-medium text-matcha-600">Anggota</p>
+          </article>
+
+          <article class="group rounded-2xl border border-matcha-100 bg-white p-5 text-center transition hover:-translate-y-1.5 hover:border-matcha-200 hover:shadow-soft">
+            <div class="mx-auto grid h-16 w-16 place-items-center rounded-full bg-matcha-500 text-xl font-extrabold text-white transition group-hover:scale-105">AN</div>
+            <h3 class="mt-3 font-bold text-neutral-900">Kamelia Jelita</h3>
+            <p class="mt-0.5 text-sm font-medium text-matcha-600">Anggota</p>
+          </article>
+
+          <article class="group rounded-2xl border border-matcha-100 bg-white p-5 text-center transition hover:-translate-y-1.5 hover:border-matcha-200 hover:shadow-soft">
+            <div class="mx-auto grid h-16 w-16 place-items-center rounded-full bg-matcha-500 text-xl font-extrabold text-white transition group-hover:scale-105">AN</div>
+            <h3 class="mt-3 font-bold text-neutral-900">Silvi Yuliana</h3>
+            <p class="mt-0.5 text-sm font-medium text-matcha-600">Anggota</p>
+          </article>
+
+          <article class="group rounded-2xl border border-matcha-100 bg-white p-5 text-center transition hover:-translate-y-1.5 hover:border-matcha-200 hover:shadow-soft">
+            <div class="mx-auto grid h-16 w-16 place-items-center rounded-full bg-matcha-500 text-xl font-extrabold text-white transition group-hover:scale-105">AN</div>
+            <h3 class="mt-3 font-bold text-neutral-900">Izumi Zhafira</h3>
+            <p class="mt-0.5 text-sm font-medium text-matcha-600">Anggota</p>
+          </article>
+
+          <article class="group rounded-2xl border border-matcha-100 bg-white p-5 text-center transition hover:-translate-y-1.5 hover:border-matcha-200 hover:shadow-soft">
+            <div class="mx-auto grid h-16 w-16 place-items-center rounded-full bg-matcha-500 text-xl font-extrabold text-white transition group-hover:scale-105">AN</div>
+            <h3 class="mt-3 font-bold text-neutral-900">Rayyan Ananda H.</h3>
+            <p class="mt-0.5 text-sm font-medium text-matcha-600">Anggota</p>
+          </article>
+
+          <article class="group rounded-2xl border border-matcha-100 bg-white p-5 text-center transition hover:-translate-y-1.5 hover:border-matcha-200 hover:shadow-soft">
+            <div class="mx-auto grid h-16 w-16 place-items-center rounded-full bg-matcha-500 text-xl font-extrabold text-white transition group-hover:scale-105">AN</div>
+            <h3 class="mt-3 font-bold text-neutral-900">Junitu Nissa N.D.</h3>
+            <p class="mt-0.5 text-sm font-medium text-matcha-600">Anggota</p>
+          </article>
+
+          <article class="group rounded-2xl border border-matcha-100 bg-white p-5 text-center transition hover:-translate-y-1.5 hover:border-matcha-200 hover:shadow-soft">
+            <div class="mx-auto grid h-16 w-16 place-items-center rounded-full bg-matcha-500 text-xl font-extrabold text-white transition group-hover:scale-105">AN</div>
+            <h3 class="mt-3 font-bold text-neutral-900">Favila Cassandra</h3>
+            <p class="mt-0.5 text-sm font-medium text-matcha-600">Anggota</p>
+          </article>
+
+          <article class="group rounded-2xl border border-matcha-100 bg-white p-5 text-center transition hover:-translate-y-1.5 hover:border-matcha-200 hover:shadow-soft">
+            <div class="mx-auto grid h-16 w-16 place-items-center rounded-full bg-matcha-500 text-xl font-extrabold text-white transition group-hover:scale-105">AN</div>
+            <h3 class="mt-3 font-bold text-neutral-900">Perawati Jesika P.</h3>
+            <p class="mt-0.5 text-sm font-medium text-matcha-600">Anggota</p>
+          </article>
+
+          <article class="group rounded-2xl border border-matcha-100 bg-white p-5 text-center transition hover:-translate-y-1.5 hover:border-matcha-200 hover:shadow-soft">
+            <div class="mx-auto grid h-16 w-16 place-items-center rounded-full bg-matcha-500 text-xl font-extrabold text-white transition group-hover:scale-105">AN</div>
+            <h3 class="mt-3 font-bold text-neutral-900">Habibullah Nur Y.</h3>
+            <p class="mt-0.5 text-sm font-medium text-matcha-600">Anggota</p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ GALERI ============ -->
+    <section id="galeri" class="border-y border-matcha-100 bg-matcha-50/40">
+      <div class="mx-auto max-w-6xl px-6 py-14 md:py-20">
+
+        <div class="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-[0.2em] text-matcha-600">Galeri</span>
+            <h2 class="mt-3 font-serif text-4xl leading-tight tracking-tight text-neutral-900 sm:text-5xl">
+              Momen yang kami <span class="italic text-matcha-500">simpan</span>
+            </h2>
+          </div>
+          <a href="https://instagram.com/cleonia.class__" target="_blank" rel="noopener"
+             class="inline-flex w-fit items-center gap-2 text-sm font-semibold text-matcha-600 transition hover:text-matcha-700">
+            Lihat semua di Instagram
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14M13 6l6 6-6 6"/>
+            </svg>
+          </a>
+        </div>
+
+        <div class="mt-8 grid grid-cols-1 gap-3.5 sm:grid-cols-2 lg:grid-cols-3">
+
+          <div class="group overflow-hidden rounded-2xl border border-matcha-100 bg-white">
+            <img src="j2.jpg" alt="Momen kelas 1"
+                 class="aspect-video w-full object-cover transition duration-500 group-hover:scale-105" />
+          </div>
+
+          <div class="group overflow-hidden rounded-2xl border border-matcha-100 bg-white">
+            <img src="j3.jpg" alt="Momen kelas 2"
+                 class="aspect-video w-full object-cover transition duration-500 group-hover:scale-105" />
+          </div>
+
+          <div class="group overflow-hidden rounded-2xl border border-matcha-100 bg-white">
+            <img src="j4.jpg" alt="Momen kelas 3"
+                 class="aspect-video w-full object-cover transition duration-500 group-hover:scale-105" />
+          </div>
+
+          <div class="group overflow-hidden rounded-2xl border border-matcha-100 bg-white">
+            <img src="j5.jpeg" alt="Momen kelas 4"
+                 class="aspect-video w-full object-cover transition duration-500 group-hover:scale-105" />
+          </div>
+
+          <div class="group overflow-hidden rounded-2xl border border-matcha-100 bg-white">
+            <img src="j6.jpeg" alt="Momen kelas 5"
+                 class="aspect-video w-full object-cover transition duration-500 group-hover:scale-105" />
+          </div>
+
+          <div class="group overflow-hidden rounded-2xl border border-matcha-100 bg-white">
+            <img src="j7.jpeg" alt="Momen kelas 6"
+                 class="aspect-video w-full object-cover transition duration-500 group-hover:scale-105" />
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============ CTA INSTAGRAM ============ -->
+    <section class="px-6 py-14 md:py-20">
+      <div class="mx-auto max-w-6xl">
+        <div class="relative overflow-hidden rounded-[2rem] border border-matcha-200 bg-matcha-50 px-8 py-12 text-center sm:px-16 sm:py-16">
+          <div class="pointer-events-none absolute -top-20 -right-16 h-64 w-64 rounded-full bg-matcha-100 blur-3xl"></div>
+          <div class="pointer-events-none absolute -bottom-24 -left-16 h-64 w-64 rounded-full bg-matcha-100 blur-3xl"></div>
+
+          <div class="relative">
+            <span class="mx-auto grid h-14 w-14 place-items-center rounded-2xl bg-matcha-500 text-white shadow-soft">
+              <svg class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+              </svg>
+            </span>
+
+            <h2 class="mt-5 font-serif text-4xl leading-tight tracking-tight text-neutral-900 sm:text-5xl">
+              Kepoin keseruan kami di <span class="italic text-matcha-500">Instagram</span>
+            </h2>
+            <p class="mx-auto mt-3 max-w-xl leading-relaxed text-neutral-600">
+              Update harian, foto candid, dan drama kecil Cleonia — semua ada di sana.
+            </p>
+
+            <a href="https://instagram.com/cleonia.class__" target="_blank" rel="noopener"
+               class="mt-7 inline-flex items-center gap-2 rounded-full bg-matcha-500 px-7 py-3.5 text-sm font-semibold text-white shadow-soft transition hover:bg-matcha-600 hover:-translate-y-0.5">
+              @cleonia.class__
+              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M7 17L17 7M17 7H8M17 7v9"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="border-t border-matcha-100">
+    <div class="mx-auto max-w-6xl px-6 py-10">
+      <div class="flex flex-col items-center gap-5 sm:flex-row sm:justify-between">
+
+        <div class="flex items-center gap-2.5">
+          <span class="grid h-9 w-9 place-items-center rounded-xl bg-matcha-500 text-white font-extrabold">C</span>
+          <div>
+            <p class="font-extrabold tracking-tight text-neutral-900">Cleonia</p>
+            <p class="text-xs text-neutral-400">Satu kelas, seribu cerita.</p>
+          </div>
+        </div>
+
+        <nav class="flex flex-wrap items-center justify-center gap-6 text-sm font-medium text-neutral-500">
+          <a href="#tentang" class="hover:text-matcha-600 transition-colors">Tentang</a>
+          <a href="#anggota" class="hover:text-matcha-600 transition-colors">Anggota</a>
+          <a href="#galeri"  class="hover:text-matcha-600 transition-colors">Galeri</a>
+        </nav>
+
+        <a href="https://instagram.com/cleonia.class__" target="_blank" rel="noopener"
+           class="grid h-10 w-10 place-items-center rounded-xl border border-matcha-200 text-matcha-600 transition hover:bg-matcha-50"
+           aria-label="Instagram Cleonia">
+          <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+          </svg>
+        </a>
+      </div>
+
+      <div class="mt-8 border-t border-matcha-100 pt-5 text-center text-xs text-neutral-400">
+        © <span id="year">2026</span> Cleonia · Dibuat dengan 🍵 dan sedikit drama.
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============ SCRIPT ============ -->
+  <script>
+    const menuBtn   = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const iconOpen  = document.getElementById('iconOpen');
+    const iconClose = document.getElementById('iconClose');
+
+    menuBtn.addEventListener('click', () => {
+      const isOpen = !mobileMenu.classList.contains('hidden');
+      mobileMenu.classList.toggle('hidden');
+      iconOpen.classList.toggle('hidden', !isOpen ? true : false);
+      iconClose.classList.toggle('hidden', !isOpen ? false : true);
+    });
+
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        iconOpen.classList.remove('hidden');
+        iconClose.classList.add('hidden');
+      });
+    });
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>
